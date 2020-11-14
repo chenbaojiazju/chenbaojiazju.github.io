@@ -64,123 +64,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-common" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2020/11/14/common/" class="article-date">
-  <time datetime="2020-11-14T13:03:19.753Z" itemprop="datePublished">2020-11-14</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="自我介绍"><a href="#自我介绍" class="headerlink" title="自我介绍"></a>自我介绍</h3><p>我叫啥，有什么职业资格证书，有哪些经历，做了多少工作，我的期望。我也希望自己对新技术保持开放的态度，能一直保持持续学习的能力和热情，能为企业乃至社会的发展贡献一点点力量。谢谢</p>
-<blockquote>
-<p>面试官，你好，我叫陈包佳。就职于中兴软件。任职期间担任过团队的测试开发工程师，只要分为三个阶段的工作。</p>
-<p>第一阶段团队环境维护和利用shell编写脚本为开发提供数据支持</p>
-<p>第二阶段利用python开发自动化用例和开发自动化用例工具为团队负责的功能模块做好质量保障工作</p>
-<p>第三阶段利用java参与团队网管性能数据查询业务开发和代码维护工作。</p>
-<p>通过这三段经历让我在编码能力和业务理解力上有了一定提升，希望自己能一直保持持续学习的能力和对行业内新技术的热情，并通过业务实践不断的锻炼和提升自我。</p>
-</blockquote>
-<p>为团队开发自动化工具，定时准备测试数据。此外，还针对查询功能的自动化用例开发和功能防护，开发的可以自动生成用例的自动化工具，提升用例开发效率。另外我还参与的团队性能数据查询的业务代码开发和代码维护和重构工作。</p>
-<p>另外，我还负责了查询项目中单gnbid网络共享场景查询结果兼容变更的业务开发，同时在学习业务代码的过程中，利用所学的clean code和一些设计原则和思想对原有代码中进行了部分重构，一定程度上提高了代码的可读性和可维护性。</p>
-<h3 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h3><p>注意事项</p>
-<ul>
-<li>项目的整体<strong>感受</strong>？有什么收获，学习postman（了解各个模块接口）</li>
-<li>项目中的<strong>角色</strong>，负责的<strong>具体任务</strong></li>
-<li>项目中使用的<strong>技术</strong>（框架，数据库，中间件等，dropwizard，GreenPlum，Gbase，Kafka作为消息中间件处理消息）</li>
-<li>沟通协调等综合能力的体现</li>
-<li>考虑代码扩展性和可读性，使用一些设计模式和原则对原有代码进行一些重构工作</li>
-<li>调优意识？sql语句的性能影响。join过程的条件过滤？where语句的在join中不同位置的影响</li>
-<li>动手能力强，肯干活，会的东西多（测试，开发工具提效，编写脚本，流水线的代码优化等？日志下载）</li>
-</ul>
-<p><strong>项目名称：5G网管历史性能数据查询质量攻关</strong></p>
-<p>项目背景：团队新建，查询功能复杂缺乏自动化用例防护，大量的代码工作容易导致故障泄露，项目组实施质量公关计划，能遍历5G网管历史查询的基本功能防护。</p>
-<p>项目现状：</p>
-<ul>
-<li>代码整洁性和可读性，性能上需要重构</li>
-<li>不能做到数据库层的透明，需要为两个数据库建立不同的两套代码逻辑，复用性较差</li>
-<li>在用例设计的有效性较低，缺乏正确性校验，易导致故障泄露</li>
-<li>用例数少，功能防护单一</li>
-<li>现如今开发用例纯手动，效率低，一天只能开发1-2个，对于查询成百上千的组合条件纯手工遍历难度大</li>
-</ul>
-<p>针对现状：</p>
-<p>做出如下改进：</p>
-<ul>
-<li>划分代码职责，重构代码，提高代码的可读性和复用性</li>
-<li>整合两套代码逻辑，做到对数据库类型的透明，减少用例维护成本</li>
-<li>在代码中正对每一步的输出做好正确性校验，让错误能提早暴露，降低定位排查成本</li>
-<li>针对后两点开发自动化用例工具，大大提升自动化用例的开发效率，能有效遍历查询的各项基本功能</li>
-</ul>
-<h5 id="自动化用例工具介绍"><a href="#自动化用例工具介绍" class="headerlink" title="自动化用例工具介绍"></a>自动化用例工具介绍</h5><ol>
-<li>利用脚本获取指定查询条件的json文件拷贝到代码的对应资源文件夹先根据用例id命名区分</li>
-<li>利用json文件调用查询接口返回结果，将response中的内容持久化到结果集文件夹中，作为结果输出校验</li>
-<li>并根据事先准备的用例id，查询id和用例标题映射，利用查询用例模板自动生成查询用例代码。</li>
-<li>将本地更新的代码通过脚本更新到测试环境执行用例，返回结果报告拷贝到本地以便分析修改</li>
-<li>将确定无误的用例代码中的输入输出部分的数据移动到测试数据库分开提交。</li>
-</ol>
-<h3 id="问题反问"><a href="#问题反问" class="headerlink" title="问题反问"></a>问题反问</h3><p>技术一面：</p>
-<p>贵公司支不支持google搜索？</p>
-<p>我也一直有在学习，现在获取知识方式过多，质量参差不齐，面试官在自学新技术上有什么建议的吗？</p>
-<p>若我有幸能通过面试，能能快融入一个新团队的工作，在技术和能力要做哪方面的准备和提升？</p>
-<p>进入团队后的主要工作内容？</p>
-<p>技术二面：</p>
-<p>针对硕士生先如今计算机硕士以实习为重，相较于以学术为重能有经历丰富，往往能更好的找到工作，面试官你们在人员筛选上是作何考虑？</p>
-<p>面临的最大挑战？</p>
-<p>企业在一些失败案例上处理方式？</p>
-<p><strong>面试官您对于合格的程序员最期待的特质或者关注点？</strong></p>
-<p>HR：</p>
-<p>贵公司有什么福利与员工团建方面的安排？</p>
-<p>贵公司最吸引你的一个点？</p>
-<h3 id="你的招聘优势"><a href="#你的招聘优势" class="headerlink" title="你的招聘优势"></a>你的招聘优势</h3><ul>
-<li>针对职位需求和企业文化和价值观</li>
-<li>不断探索的新的知识</li>
-<li>团队合作和沟通</li>
-<li>作为CI防火墙有较强的问题排查能力和责任心（为团队方便分析定位问题，开发日志下载功能）</li>
-<li>能力：<ul>
-<li>分析定位和解决问题能力</li>
-<li>沟通能力</li>
-<li>技术上的学习能力，新技术的接受能力</li>
-<li>动手实践能力</li>
-<li>创新能力</li>
-<li>团队合作精神</li>
-<li>时间观念，任务安排</li>
-<li>良好的编码习惯</li>
-<li>有责任心</li>
-</ul>
-</li>
-</ul>
-<h3 id="你的缺点"><a href="#你的缺点" class="headerlink" title="你的缺点"></a>你的缺点</h3><ul>
-<li><p>说话口齿不太清晰，公众场合容易紧张，说话不流利，不过这也是我一直以来希望不断提升和改进的地方，也会看一些沟通方面的书籍和沟通礼仪。</p>
-</li>
-<li><p>缺乏必要的自信心。</p>
-</li>
-</ul>
-<h4 id="面试问题技巧"><a href="#面试问题技巧" class="headerlink" title="面试问题技巧"></a>面试问题技巧</h4><p>对面试问题的答案进行分类讨论，举例论证</p>
-<p>与面试官看齐，靠拢，拉近距离</p>
-<p>核心要素：专业能力，外在只是初期的帮助，走的长远问题看核心能力</p>
-<p>项目给我带来的改变和能力的提升</p>
-<p>综合能力：职业能力，统筹规划能力，组织能力</p>
-<p>对于简历上提到的点一定要烂熟于胸</p>
-<p>对于面试问题的解答进行适当的拓展，点到为止，不需要体现太多的技术细节。</p>
-<p>关注技术的表达能力</p>
-<p>引导面试官进入自己擅长的领域</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/14/common/" data-id="ckhhpcphw0000w8v9dn8a22ei" class="article-share-link">Share</a>
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-  
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/2020/11/14/hello-world/" class="article-date">
@@ -220,7 +103,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2020/11/14/hello-world/" data-id="ckhhpcpi20001w8v9hen6fgn5" class="article-share-link">Share</a>
+      <a data-url="http://example.com/2020/11/14/hello-world/" data-id="ckhhq1j1600005cv9ag0pculx" class="article-share-link">Share</a>
       
       
     </footer>
@@ -259,10 +142,6 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
-        
-          <li>
-            <a href="/2020/11/14/common/">(no title)</a>
-          </li>
         
           <li>
             <a href="/2020/11/14/hello-world/">Hello World</a>
